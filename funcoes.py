@@ -1,4 +1,6 @@
 import random
+
+
 def transforma_base(questoes):
     base = {}
     for questao in questoes:
@@ -7,6 +9,8 @@ def transforma_base(questoes):
             base[nivel] = []
         base[nivel].append(questao)
     return base
+
+
 def valida_questao(questao):
     erros = {}
 
@@ -44,9 +48,11 @@ def valida_questao(questao):
                         vazias[letra] = 'vazia'
                 if vazias != {}:
                     erros['opcoes'] = vazias
+
     if 'correta' in questao:
         if questao['correta'] not in ['A', 'B', 'C', 'D']:
             erros['correta'] = 'valor_errado'
+
     return erros
 
 
@@ -55,7 +61,6 @@ def valida_questoes(questoes):
     for questao in questoes:
         resultado.append(valida_questao(questao))
     return resultado
-
 
 
 def sorteia_questao(questoes, nivel):
@@ -80,6 +85,7 @@ def questao_para_texto(questao, id):
     for letra in ['A', 'B', 'C', 'D']:
         texto += letra + ': ' + questao['opcoes'][letra] + '\n'
     return texto
+
 
 def gera_ajuda(questao):
     incorretas = []
