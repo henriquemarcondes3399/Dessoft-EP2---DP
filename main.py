@@ -148,6 +148,7 @@ def mostra_erros_da_base(problemas):
         print('  Questao ' + str(indice) + ': ' + str(erros))
 
 
+
 def procura_problemas(questoes):
     """Devolve uma lista de (indice, erros) para as questoes com problema."""
     erros = funcoes.valida_questoes(questoes)
@@ -238,8 +239,6 @@ def jogar(base, nome):
                     return 0, 'errou'
 
     return premio, 'vitoria'
-
-
 
 def main():
     questoes = quest
