@@ -48,3 +48,9 @@ def valida_questao(questao):
             erros['correta'] = 'valor_errado'
     return erros
 
+
+def valida_questoes(questoes):
+    resultado = []
+    for questao in questoes:
+        resultado.append(valida_questao(questao))
+    return resultado
