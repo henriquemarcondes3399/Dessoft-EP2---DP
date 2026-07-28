@@ -1,3 +1,4 @@
+import random
 def transforma_base(questoes):
     base = {}
     for questao in questoes:
@@ -56,8 +57,6 @@ def valida_questoes(questoes):
     return resultado
 
 
-import random
-
 
 def sorteia_questao(questoes, nivel):
     return random.choice(questoes[nivel])
@@ -82,3 +81,15 @@ def questao_para_texto(questao, id):
         texto += letra + ': ' + questao['opcoes'][letra] + '\n'
     return texto
 
+def gera_ajuda(questao):
+    incorretas = []
+    for letra in ['A', 'B', 'C', 'D']:
+        if letra != questao['correta']:
+            incorretas.append(questao['opcoes'][letra])
+
+    quantidade = random.randint(1, 2)
+    sorteadas = random.sample(incorretas, quantidade)
+
+    texto = 'DICA:\n'
+    texto += 'Opções certamente erradas: ' + ', '.join(sorteadas)
+    return texto
