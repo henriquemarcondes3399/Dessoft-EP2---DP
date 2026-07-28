@@ -69,3 +69,14 @@ def sorteia_questao_inedita(questoes, nivel, questoes_sorteadas):
         questao = sorteia_questao(questoes, nivel)
     questoes_sorteadas.append(questao)
     return questao
+
+def questao_para_texto(questao, id):
+    texto = '-' * 40 + '\n'
+    texto += 'QUESTAO ' + str(id) + '\n'
+    texto += '\n'
+    texto += questao['titulo'] + '\n'
+    texto += '\n'
+    texto += 'RESPOSTAS:\n'
+    for letra in ['A', 'B', 'C', 'D']:
+        texto += letra + ': ' + questao['opcoes'][letra] + '\n'
+    return texto
